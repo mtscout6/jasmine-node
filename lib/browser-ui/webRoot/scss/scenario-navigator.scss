@@ -1,0 +1,90 @@
+//Do Not Remove This Comment -- BOM Safety
+@import 'utils/colors';
+
+$navigationWidth: 300px;
+$statPaneHeight: 20px;
+
+body {
+  margin: 0px;
+}
+
+#TestNavigator{
+  $navigationHeader: 47px;
+
+  position: fixed;
+  top: 57px;
+  bottom: $statPaneHeight;
+  width: $navigationWidth;
+
+  padding-bottom: $navigationHeader;
+
+  border-color: $black;
+  border-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-right-style: solid;
+
+  & > div:nth-of-type(2){
+    height: 100%;
+    overflow: auto;
+
+    border-color: $black;
+    border-width: 1px;
+
+    border-top-style: solid;
+
+    // Scenario Display
+    & > div {
+      margin-left: 5px;
+
+      input[type='checkbox']{
+        margin: 0px
+      }
+
+      & > div:first-of-type {
+        display: inline;
+      }
+
+      // Test Display
+      & > div:last-of-type > div {
+        margin-left: 17px;
+
+        & > div{
+          display: inline;
+        }
+      }
+    }
+  }
+}
+
+#ResultsPane{
+  position: fixed;
+  top: 57px;
+  bottom: 0;
+  left: 301px;
+  right: 0;
+
+  padding-left: 3px;
+
+  border-color: $black;
+  border-width: 1px;
+  border-top-style: solid;
+
+  & > div:last-of-type{
+    height: 100%;
+    overflow: auto;
+  }
+}
+
+#TestStats{
+  position: fixed;
+  bottom: 0;
+
+  width: $navigationWidth;
+  height: $statPaneHeight;
+
+  border-color: $black;
+  border-width: 1px;
+  border-top-style: solid;
+  border-right-style: solid;
+}

@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href='content/styles/scenario-navigator.css' />
+
+    <script type="text/javascript" data-main="content/scripts/main" src="content/scripts/require.js"></script>
+  </head>
+
+  <body>
+    <div id='Header'>
+      <h1>Jasmine-Node Test Runner</h1>
+    </div>
+
+    <div id='TestNavigator'>
+      <div>
+        <div>Tests</div>
+        <button type='button' data-bind="click: run">Run</button>
+      </div>
+      <div data-bind="template: {name:'navScenarioTemplate', foreach: scenarios}">
+      </div>
+
+      <script type="text/x-jquery-tmpl" id="navScenarioTemplate">
+        <div>
+          <input type='checkbox' data-bind="checked: selected" />
+          <div>${name}<span data-bind="text: state"></span></div>
+          <div data-bind="template: {name: 'navTestTemplate', foreach: tests}">
+          </div>
+        </div>
+      </script>
+
+      <script type="text/x-jquery-tmpl" id="navTestTemplate">
+        <div>
+          <input type="checkbox" data-bind="checked: selected" />
+          <div>${name}<span data-bind="text: state"></span></div>
+        </div>
+      </script>
+    </div>
+
+    <div id='ResultsPane'>
+      <div>
+        <div>Results Pane Navigation</div>
+      </div>
+      <div>
+        <div>Results</div>
+      </div>
+    </div>
+
+    <div id='TestStats'>
+      <div>
+        <div>Total Tests</div>
+      </div>
+    </div>
+  </body>
+</html>
