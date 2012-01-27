@@ -33,8 +33,8 @@ body {
 
     border-top-style: solid;
 
-    // Scenario Display
-    & > div {
+    // Suite Display
+    .suite {
       margin-left: 5px;
 
       input[type='checkbox']{
@@ -42,15 +42,42 @@ body {
       }
 
       & > div:first-of-type {
+        display: inline-block;
+
+        & > img {
+          float: left;
+          margin-top: -9px;
+        }
+
+        & > img[name="expand"]{
+          display: none;
+        }
+      }
+
+      & > div:nth-of-type(2) {
         display: inline;
+        cursor: pointer;
       }
 
       // Test Display
-      & > div:last-of-type > div {
+      .test {
         margin-left: 17px;
 
         & > div{
           display: inline;
+        }
+      }
+    }
+
+    // Suite collapsed
+    .collapsed{
+      & > div:first-of-type{
+        & > img[name="collapse"]{
+          display: none;
+        }
+
+        & > img[name="expand"]{
+          display: inline-block !important;
         }
       }
     }

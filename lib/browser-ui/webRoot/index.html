@@ -1,6 +1,6 @@
 <html>
   <head>
-    <link rel='stylesheet' type='text/css' href='content/styles/scenario-navigator.css' />
+    <link rel='stylesheet' type='text/css' href='content/styles/suite-navigator.css' />
 
     <script type="text/javascript" data-main="content/scripts/main" src="content/scripts/require.js"></script>
   </head>
@@ -15,22 +15,26 @@
         <div>Tests</div>
         <button type='button' data-bind="click: run">Run</button>
       </div>
-      <div data-bind="template: {name:'navScenarioTemplate', foreach: scenarios}">
+      <div data-bind="template: {name:'navSuiteTemplate', foreach: suites}">
       </div>
 
-      <script type="text/x-jquery-tmpl" id="navScenarioTemplate">
-        <div>
+      <script type="text/x-jquery-tmpl" id="navSuiteTemplate">
+        <div class="suite" data-bind="css: {collapsed: collapsed}">
+          <div>
+            <img name="collapse" src="/content/images/arrow_up.gif" />
+            <img name="expand" src="/content/images/arrow_down.gif" />
+          </div>
           <input type='checkbox' data-bind="checked: selected" />
-          <div>${name}<span data-bind="text: state"></span></div>
-          <div data-bind="template: {name: 'navTestTemplate', foreach: tests}">
+          <div data-bind="click: toggleCollapsed">${name}<span data-bind="text: state"></span></div>
+          <div data-bind="template: {name: 'navTestTemplate', foreach: tests}, visible: !collapsed()">
           </div>
         </div>
       </script>
 
       <script type="text/x-jquery-tmpl" id="navTestTemplate">
-        <div>
+        <div class="test">
           <input type="checkbox" data-bind="checked: selected" />
-          <div>${name}<span data-bind="text: state"></span></div>
+          <label>${name}<span data-bind="text: state"></span></label>
         </div>
       </script>
     </div>
